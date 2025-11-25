@@ -1,19 +1,19 @@
-"use client"
-import { ShoppingCart } from "lucide-react"
-import { useState } from "react"
-import { GenericDrinkIcon } from "./generic-drink-icon"
+"use client";
+import { ShoppingCart } from "lucide-react";
+import { useState } from "react";
+import { GenericDrinkIcon } from "./generic-drink-icon";
 
 interface Product {
-  nome: string
-  preco: number
-  descricao?: string
-  imagem?: string
+  nome: string;
+  preco: number;
+  descricao?: string;
+  imagem?: string;
 }
 
 export default function ProductCard({ product }: { product: Product }) {
-  const [isHovered, setIsHovered] = useState(false)
-  const hasImage = product.imagem && product.imagem.trim() !== ""
-  const imageUrl = hasImage ? product.imagem : null
+  const [isHovered, setIsHovered] = useState(false);
+  const hasImage = product.imagem && product.imagem.trim() !== "";
+  const imageUrl = hasImage ? product.imagem : null;
 
   return (
     <div
@@ -33,15 +33,6 @@ export default function ProductCard({ product }: { product: Product }) {
             <GenericDrinkIcon />
           </div>
         )}
-        <div
-          className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full p-2 transition-colors">
-            <ShoppingCart size={20} />
-          </button>
-        </div>
       </div>
 
       <div className="flex-1 flex flex-col justify-between">
@@ -49,8 +40,10 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.nome}
         </h3>
 
-        <span className="text-lg sm:text-xl font-bold text-orange-500">R$ {product.preco.toFixed(2)}</span>
+        <span className="text-lg sm:text-xl font-bold text-orange-500">
+          R$ {product.preco.toFixed(2)}
+        </span>
       </div>
     </div>
-  )
+  );
 }
